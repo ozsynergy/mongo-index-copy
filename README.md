@@ -67,24 +67,6 @@ Compare mode is read-only and exits non-zero if any collection or normalized ind
 - Building indexes causes MongoDB to scan existing target documents and consumes database resources even though this script does not copy or modify those documents. Monitor the target and schedule large index builds appropriately.
 - The script never prints either connection string.
 
-## Local Docker test
 
-The accompanying Compose environment starts an empty source collection containing a compound unique index and a completely empty target MongoDB instance:
-
-```bash
-docker compose -f scripts/docker-compose.mongodb-indexes.yml up -d source-mongo target-mongo
-```
-
-Run the tool inside its container, so a host installation of `mongosh` is not required:
-
-```bash
-docker compose -f scripts/docker-compose.mongodb-indexes.yml run --rm index-tool
-docker compose -f scripts/docker-compose.mongodb-indexes.yml run --rm -e INDEX_ACTION=copy index-tool
-docker compose -f scripts/docker-compose.mongodb-indexes.yml run --rm -e INDEX_ACTION=compare index-tool
-```
-
-Remove the containers and volumes to reset the target to empty and rerun the source initializer:
-
-```bash
 docker compose -f scripts/docker-compose.mongodb-indexes.yml down -v
 ```
