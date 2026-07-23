@@ -16,7 +16,7 @@ Put connection strings in environment variables so they are not passed in comman
 ```bash
 export SOURCE_MONGODB_URI='mongodb://...'
 export TARGET_MONGODB_URI='mongodb://...'
-export MONGODB_DATABASE='account-fields'
+export MONGODB_DATABASE='db-name'
 ```
 
 ## 1. Preview the copy
