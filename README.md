@@ -68,5 +68,3 @@ Compare mode is read-only and exits non-zero if any collection or normalized ind
 - The script never prints either connection string.
 
 
-docker compose -f scripts/docker-compose.mongodb-indexes.yml down -v
-```
